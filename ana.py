@@ -73,7 +73,6 @@ res = {}
 
 # %%
 # m2m
-
 def pair_p(i, j):
     return i,j,my_p(xm[i], ym, xm[j], ym, -4)
     
@@ -100,7 +99,8 @@ def pair_p(i, j):
 a, b = range(xh.shape[0]), range(xm.shape[0])
 res['m2h'] = pmap_multi(pair_p, itertools.product(a, b), backend='multiprocessing')
 
-
+with open(r"res1.pickle", "wb") as output_file:
+    pickle.dump(res, output_file)
 
 # %%
 # h2h
