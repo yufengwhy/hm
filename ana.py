@@ -26,7 +26,7 @@ def pickle_load(fn):
         return np.squeeze(np.array(pickle.load(input_file)))
 
 fn_list = ['graph_nx_human_L_surface_10k.pickle', 'HCPS403_xtract_bp_10k_L.pickle', 'HCPS403_myelin_NoOutlier_10k_L.pickle', 'graph_nx_macaque_L_surface_10k.pickle', 'LN8_xtract_bp_10k_L.pickle', 'Macaque_actual_myelin_L.pickle']
-fn_list = ['data/'+fn for fn in fn_list]
+fn_list = ['/hpc-cache-pfs/home/yufeng/data/hm/'+fn for fn in fn_list]
 ah, xh, yh, am, xm, ym = map(pickle_load, fn_list)
 
 ym[~np.isfinite(ym)] = 0  # ym has nan
